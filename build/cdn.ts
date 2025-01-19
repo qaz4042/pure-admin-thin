@@ -7,7 +7,8 @@ import { Plugin as importToCDN } from "vite-plugin-cdn-import";
  */
 export const cdn = importToCDN({
   //（prodUrl解释： name: 对应下面modules的name，version: 自动读取本地package.json中dependencies依赖中对应包的版本号，path: 对应下面modules的path，当然也可写完整路径，会替换prodUrl）
-  prodUrl: "https://cdn.bootcdn.net/ajax/libs/{name}/{version}/{path}",
+  prodUrl: "https://cdnjs.cloudflare.com/ajax/libs/{name}/{version}/{path}",
+  // prodUrl: "https://cdn.bootcdn.net/ajax/libs/{name}/{version}/{path}",
   modules: [
     {
       name: "vue",
@@ -55,6 +56,41 @@ export const cdn = importToCDN({
       name: "echarts",
       var: "echarts",
       path: "echarts.min.js"
-    }
+    },
+    {
+      name: "animate.css",
+      var: "animate.css",
+      path: "animate.min.css"
+    },
+    {
+      name: "js-cookie",
+      var: "Cookies",
+      path: "js.cookie.min.js"
+    },
+    {
+      name: "qs",
+      var: "Qs",
+      path: "qs.min.js"
+    },
+    {
+      name: "nprogress",
+      var: "NProgress",
+      path: "nprogress.min.js"
+    },
+    {
+      name: "localforage",
+      var: "LocalForage",
+      path: "localforage.min.js"
+    },
+    {
+      name: "sortablejs",
+      var: "Sortable",
+      path: "sortable.min.js"
+    },
+    {
+      name: "pinyin-pro",
+      var: "pinyin-pro",
+      path: "index.min.js"
+    },
   ]
 });

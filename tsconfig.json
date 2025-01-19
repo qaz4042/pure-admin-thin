@@ -33,7 +33,6 @@
       "node",
       "vite/client",
       "element-plus/global",
-      "@pureadmin/table/volar",
       "@pureadmin/descriptions/volar"
     ]
   },

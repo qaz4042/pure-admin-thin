@@ -1,5 +1,5 @@
 import { getPluginsList } from "./build/plugins";
-import { include, exclude } from "./build/optimize";
+import { include, exclude, external } from "./build/optimize";
 import { type UserConfigExport, type ConfigEnv, loadEnv } from "vite";
 import {
   root,
@@ -51,7 +51,8 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
           chunkFileNames: "static/js/[name]-[hash].js",
           entryFileNames: "static/js/[name]-[hash].js",
           assetFileNames: "static/[ext]/[name]-[hash].[ext]"
-        }
+        },
+        external: external, // 在最终构建时将其视为外部依赖
       }
     },
     define: {

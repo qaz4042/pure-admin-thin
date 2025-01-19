@@ -9,9 +9,6 @@ import { createApp, type Directive } from "vue";
 import { useElementPlus } from "@/plugins/elementPlus";
 import { injectResponsiveStorage } from "@/utils/responsive";
 
-import Table from "@pureadmin/table";
-// import PureDescriptions from "@pureadmin/descriptions";
-
 // 引入重置样式
 import "./style/reset.scss";
 // 导入公共样式
@@ -22,6 +19,7 @@ import "element-plus/dist/index.css";
 // 导入字体图标
 import "./assets/iconfont/iconfont.js";
 import "./assets/iconfont/iconfont.css";
+import { setupPWAPrompt } from "./pwa-install";
 
 const app = createApp(App);
 
@@ -58,8 +56,9 @@ getPlatformConfig(app).then(async config => {
   app.use(router);
   await router.isReady();
   injectResponsiveStorage(app, config);
-  app.use(MotionPlugin).use(useI18n).use(useElementPlus).use(Table);
+  app.use(MotionPlugin).use(useI18n).use(useElementPlus);
   // .use(PureDescriptions)
   // .use(useEcharts);
   app.mount("#app");
+  setupPWAPrompt();
 });
