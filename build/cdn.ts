@@ -60,7 +60,8 @@ export const cdn = importToCDN({
     {
       name: "animate.css",
       var: "animate.css",
-      path: "animate.min.css"
+      path: [],
+      css: "animate.min.css"
     },
     {
       name: "js-cookie",
@@ -85,12 +86,14 @@ export const cdn = importToCDN({
     {
       name: "sortablejs",
       var: "Sortable",
-      path: "sortable.min.js"
+      path: "sortable.min.js",
+      prodUrl:
+        "https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.6/Sortable.min.js"
     },
     {
       name: "pinyin-pro",
       var: "pinyin-pro",
       path: "index.min.js"
-    },
+    }
   ]
 });

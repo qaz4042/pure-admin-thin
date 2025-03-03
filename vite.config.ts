@@ -50,9 +50,14 @@ export default ({ mode }: ConfigEnv): UserConfigExport => {
         output: {
           chunkFileNames: "static/js/[name]-[hash].js",
           entryFileNames: "static/js/[name]-[hash].js",
-          assetFileNames: "static/[ext]/[name]-[hash].[ext]"
+          assetFileNames: "static/[ext]/[name]-[hash].[ext]",
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              return "vendor";
+            }
+          }
         },
-        external: external, // 在最终构建时将其视为外部依赖
+        external: external // 在最终构建时将其视为外部依赖
       }
     },
     define: {

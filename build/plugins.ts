@@ -43,7 +43,7 @@ export function getPluginsList(
      * vite-plugin-router-warn只在开发环境下启用，只处理vue-router文件并且只在服务启动或重启时运行一次，性能消耗可忽略不计
      */
     removeNoMatch(),
-    // mock支持
+    // mock支持 process.env.VITE_USE_MOCK === 'true' &&
     vitePluginFakeServer({
       logger: false,
       include: "mock",
